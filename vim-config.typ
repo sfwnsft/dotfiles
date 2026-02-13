@@ -29,7 +29,6 @@
 == This is the content inside ``` ~/.vimrc ```
 
 ``` syntax on
-
 filetype plugin indent on
 
 set number
@@ -41,10 +40,10 @@ set expandtab
 set termguicolors
 set clipboard=unnamed
 set mouse=a
+set fillchars=eob:\ 
 autocmd InsertLeave * write
 
 call plug#begin('~/.vim/plugged')
-
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -54,7 +53,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
-
 call plug#end()
 
 nnoremap <C-n> :NERDTreeToggle<CR>
@@ -69,6 +67,14 @@ let g:airline_powerline_fonts = 1
 
 let g:catppuccin_flavour = 'mocha'
 colorscheme catppuccin_mocha ```
+
+== Terminal inside Vim
+
+- Terminal on the left side as a pane - :vert term
+- Terminal on the right side as a pane - :vert rightbel term
+- Terminal on the top as a pane - :term
+- Terminal on the bottom as a pane - :bel term
+- Split a pane - :vsplit
 
 #pagebreak()
 
@@ -88,11 +94,6 @@ These can be installed, updated, and removed inside Vim using, \
 - typst.vim
 
 == Commands for Workflow
-
-=== Terminal Inside Vim
-
-- :terminal or, :term (Open terminal inside Vim)
-- :below terminal or, :bel term (Open terminal inside Vim below)
 
 === Debugger Access
 
@@ -123,7 +124,7 @@ PHP: php -dxdebug.mode=debug script.php
 
 #pagebreak()
 
-=== NERDTREE PLUGIN
+=== NERDTREE PLUGIN + PANE SWITCHING TRICKS IN VIM
 
 - Ctrl+n          (Toggle file tree) \
 - Enter           (Open file) \
@@ -131,6 +132,7 @@ PHP: php -dxdebug.mode=debug script.php
 - I               (Toggle hidden files) \
 - ?               (Toggle help) \
 - Ctrl+w w        (Go back to NERDTree)
+- Ctrl+w r        (Swap panes)
 
 === FZF PLUGIN
 
