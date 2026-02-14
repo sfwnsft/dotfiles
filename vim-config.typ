@@ -53,14 +53,13 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 nnoremap <C-p> :Files<CR>
-nnoremap <C-f> :Rg<CR>
-nnoremap <Leader>b :Buffers<CR>
 
 let g:airline_theme='catppuccin_mocha'
 let g:airline_powerline_fonts = 1
@@ -92,6 +91,7 @@ These can be installed, updated, and removed inside Vim using, \
 - nerdtree
 - fzf.vim
 - typst.vim
+- vim-devicons
 
 == Commands for Workflow
 
@@ -137,7 +137,7 @@ PHP: php -dxdebug.mode=debug script.php
 === FZF PLUGIN
 
 - Ctrl+p          (Find files) \
-- Ctrl+f          (Search text in files) \
+- :Rg             (Search text in files) \
 - Esc             (Close fzf) \
 - Enter           (Open file)
 
