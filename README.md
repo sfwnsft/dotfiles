@@ -254,4 +254,6 @@ plugins=(
 
 source "$OSH"/oh-my-bash.sh
 
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 ```
