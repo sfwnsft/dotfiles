@@ -23,7 +23,7 @@ set expandtab
 set termguicolors
 set clipboard=unnamed
 set mouse=a
-set fillchars=eob:\
+set fillchars=eob:\ 
 autocmd InsertLeave * write
 
 let g:polyglot_disabled = ['markdown']
@@ -39,9 +39,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
+Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
@@ -51,6 +51,7 @@ call plug#end()
 
 let g:startify_custom_header = []
 let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
+let g:startify_enable_special = 0
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
@@ -59,6 +60,8 @@ let g:NERDTreeWinSize = 25
 let g:indentLine_char = '│'
 
 nnoremap <C-p> :Files<CR>
+
+nnoremap <silent> <C-t> :FloatermToggle<CR>
 
 let g:airline_theme='catppuccin_mocha'
 let g:airline_powerline_fonts = 1
