@@ -53,15 +53,16 @@ let g:startify_custom_header = []
 let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
 let g:startify_enable_special = 0
 
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 25
 
 let g:indentLine_char = '│'
 
-nnoremap <C-p> :Files<CR>
+nnoremap <silent> <C-p> :Files<CR>
 
 nnoremap <silent> <C-t> :FloatermToggle<CR>
+tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 
 let g:airline_theme='catppuccin_mocha'
 let g:airline_powerline_fonts = 1
