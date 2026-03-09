@@ -64,6 +64,12 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-t> :FloatermToggle<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 
+nnoremap <silent> <C-f> :FloatermNew<CR>
+tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
+
+nnoremap <silent> <C-/> :FloatermNext<CR>
+tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
+
 let g:airline_theme='catppuccin_mocha'
 let g:airline_powerline_fonts = 1
 
