@@ -90,6 +90,67 @@ let g:catppuccin_flavour = 'mocha'
 colorscheme catppuccin_mocha
 
 ```
+
+## Minimal Version ```~/.vimrc```
+
+```
+syntax on
+filetype plugin indent on
+
+set number
+set showmatch
+set scrolloff=8
+set autoindent
+set noshowcmd
+set tabstop=4
+set shiftwidth=4
+set splitright
+set splitbelow
+set noswapfile
+set wrap
+set linebreak
+set expandtab
+set clipboard=unnamed
+set mouse=a
+set fillchars=eob:\ 
+autocmd InsertLeave * write
+
+let g:polyglot_disabled = ['markdown']
+
+call plug#begin('~/.vim/plugged')
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'sheerun/vim-polyglot'
+Plug 'kaarmu/typst.vim'
+Plug 'tpope/vim-commentary'
+Plug 'Yggdroot/indentLine'
+Plug 'voldikss/vim-floaterm'
+Plug 'mhinz/vim-startify'
+Plug 'ap/vim-css-color'
+Plug 'sbdchd/neoformat'
+call plug#end()
+
+let g:startify_custom_header = []
+let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
+let g:startify_enable_special = 0
+
+let g:indentLine_char = '│'
+
+nnoremap <silent> <C-p> :Files<CR>
+
+nnoremap <silent> <C-t> :FloatermToggle<CR>
+tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
+
+nnoremap <silent> <C-f> :FloatermNew<CR>
+tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
+
+nnoremap <silent> <C-/> :FloatermNext<CR>
+tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
+
+```
+
 ## Terminal Inside Vim
 
 - Terminal on the left side as a pane - :vert term
