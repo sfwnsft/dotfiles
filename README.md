@@ -90,7 +90,6 @@ let g:catppuccin_flavour = 'mocha'
 colorscheme catppuccin_mocha
 
 ```
-
 ## Terminal Inside Vim
 
 - Terminal on the left side as a pane - :vert term
