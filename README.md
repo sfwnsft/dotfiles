@@ -97,6 +97,8 @@ colorscheme catppuccin_mocha
 syntax on
 filetype plugin indent on
 
+set title
+set titlestring=%t
 set number
 set showmatch
 set scrolloff=8
@@ -110,6 +112,7 @@ set noswapfile
 set wrap
 set linebreak
 set expandtab
+set termguicolors
 set clipboard=unnamed
 set mouse=a
 set fillchars=eob:\ 
@@ -118,10 +121,10 @@ autocmd InsertLeave * write
 let g:polyglot_disabled = ['markdown']
 
 call plug#begin('~/.vim/plugged')
+Plug 'Luxed/ayu-vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'tpope/vim-fugitive'
 Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
@@ -138,7 +141,16 @@ let g:startify_enable_special = 0
 
 let g:indentLine_char = '│'
 
+let g:netrw_banner = 0
+let g:netrw_winsize   = 15
+let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
+
+nnoremap U <C-r>
+
+nnoremap <silent> <C-n> :Lexplore<CR>
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-r> :Rg<CR>
 
 nnoremap <silent> <C-t> :FloatermToggle<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
@@ -148,6 +160,10 @@ tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
 
 nnoremap <silent> <C-/> :FloatermNext<CR>
 tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
+
+set background=dark
+colorscheme ayu
+hi Normal guibg=NONE ctermbg=NONE
 
 ```
 
