@@ -29,7 +29,7 @@ autocmd InsertLeave * write
 let g:polyglot_disabled = ['markdown']
 
 call plug#begin('~/.vim/plugged')
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+Plug 'Luxed/ayu-vim'
 Plug 'preservim/nerdtree'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -53,13 +53,17 @@ let g:startify_custom_header = []
 let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
 let g:startify_enable_special = 0
 
+let g:indentLine_char = '│'
+
 nnoremap <silent> <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize = 25
 
-let g:indentLine_char = '│'
+nnoremap U <C-r>
 
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
+nnoremap <silent> <C-r> :Rg<CR>
 
 nnoremap <silent> <C-t> :FloatermToggle<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
@@ -73,7 +77,7 @@ tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
 " let g:floaterm_width = 0.8
 " let g:floaterm_height = 0.8
 
-let g:airline_theme='catppuccin_mocha'
+let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 
 let g:airline_left_sep = ''
@@ -86,8 +90,9 @@ let g:airline_section_z = '%l/%L | %c'
 let g:airline_section_warning = ''
 let g:airline_section_error = ''
 
-let g:catppuccin_flavour = 'mocha'
-colorscheme catppuccin_mocha
+set background=dark
+colorscheme ayu
+hi Normal guibg=NONE ctermbg=NONE
 
 ```
 
