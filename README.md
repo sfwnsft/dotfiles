@@ -74,9 +74,6 @@ tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <C-/> :FloatermNext<CR>
 tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
 
-" let g:floaterm_width = 0.8
-" let g:floaterm_height = 0.8
-
 let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
 
@@ -89,6 +86,9 @@ let g:airline_section_z = '%l/%L | %c'
 
 let g:airline_section_warning = ''
 let g:airline_section_error = ''
+
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
 
 set background=dark
 colorscheme ayu
@@ -166,6 +166,9 @@ tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
 nnoremap <silent> <C-/> :FloatermNext<CR>
 tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
 
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+
 set background=dark
 colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
@@ -186,6 +189,8 @@ These can be installed, updated, and removed inside Vim using,
 :PlugInstall, :PlugUpdate, and :PlugClean.
 
 - catppuccin/vim
+- Luxed/ayu-vim
+- voldikss/vim-floaterm
 - preservim/nerdtree
 - iamcco/markdown-preview.nvim
 - junegunn/fzf
@@ -229,7 +234,7 @@ These can be installed, updated, and removed inside Vim using,
 - p (Print variable)
 - q (Quit)
 
-## NERDTree & Pane Switching in Vim
+## NERDTree/netrw & Pane Switching in Vim
 
 - Ctrl+n (Toggle file tree)
 - Enter (Open file)
@@ -270,6 +275,33 @@ These can be installed, updated, and removed inside Vim using,
 ## Neoformat
 
 - :Neoformat (Code formatting)
+
+## Essential Docker Commands
+
+```docker run image_name``` - Creates and starts a new container from an image.
+
+```docker ps``` - Lists your actively running containers.
+
+```docker ps -a``` - Lists all containers.
+
+```docker stop container_id``` - Stops a running container.
+
+```docker start container_id``` - Restarts a container.
+
+```docker rm container_id``` - Removes a stopped container.
+
+```docker rm -f container_id``` - Force removes any container.
+
+```docker pull image_name``` - Downloads an image from Docker Hub.
+
+```docker build -t custom_name .``` - Builds a brand new image based on the ```Dockerfile``` in your current directory. 
+The ```-t``` tags it with a readable name.
+
+```docker images``` - Lists all the images.
+
+```docker rmi image_id``` - Removes any image when no container is using it.
+
+```docker system prune -a``` - Wipes all containers, unused networks, and dangling images.
 
 ## Zsh Shell ```~/.zshrc```
 
