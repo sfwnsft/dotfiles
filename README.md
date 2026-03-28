@@ -1,5 +1,38 @@
 # Setup
 
+## Tmux configuration ```~/.tmux.conf```
+
+```
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+set -g mouse on
+set -s escape-time 0
+
+set -g focus-events on
+set -s set-clipboard on
+
+bind | split-window -h -c "#{pane_current_path}"
+bind _ split-window -v -c "#{pane_current_path}"
+bind = select-layout even-horizontal
+
+set -g default-terminal "tmux-256color"
+
+set -g status-position top
+set -g status-justify centre
+set -g status-style "bg=default fg=#646B73"
+
+set -g status-left ""
+set -g status-right ""
+
+setw -g window-status-format ' #T '
+setw -g window-status-current-format ' #[bold]#T '
+
+bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
+
+```
+
 ## Vim configuration ```~/.vimrc```
 
 ```
