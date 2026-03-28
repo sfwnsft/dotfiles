@@ -1,6 +1,27 @@
 # Setup
 
-## Tmux configuration ```~/.tmux.conf```
+## Ghostty Terminal Configuration
+
+```
+theme = Ayu
+background = #000000
+font-size = 18
+
+cursor-style = block
+cursor-style-blink = false
+
+shell-integration-features = no-cursor
+macos-titlebar-proxy-icon = hidden
+
+window-save-state = always
+window-padding-balance = true
+
+macos-titlebar-style = tabs
+bell-features = no-system, no-audio, no-attention, no-title
+
+```
+
+## Tmux Configuration ```~/.tmux.conf```
 
 ```
 set -g prefix C-a
@@ -33,7 +54,7 @@ bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 
 ```
 
-## Vim configuration ```~/.vimrc```
+## Vim Configuration ```~/.vimrc```
 
 ```
 syntax on
@@ -254,7 +275,7 @@ These can be installed, updated, and removed inside Vim using,
 - p (Print variable)
 - q (Quit)
 
-## NERDTree/netrw & Pane Switching in Vim
+## NERDTree/Netrw & Pane Switching in Vim
 
 - Ctrl+n (Toggle file tree)
 - Enter (Open file)
