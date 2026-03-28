@@ -129,7 +129,7 @@ hi Normal guibg=NONE ctermbg=NONE
 
 ```
 
-## Minimal Version ```~/.vimrc```
+## Minimal Version (Best w/Tmux) ```~/.vimrc```
 
 ```
 syntax on
@@ -167,7 +167,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
-Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
@@ -180,7 +179,7 @@ let g:startify_enable_special = 0
 let g:indentLine_char = '│'
 
 let g:netrw_banner = 0
-let g:netrw_winsize   = 15
+let g:netrw_winsize = 15
 let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 nnoremap U <C-r>
@@ -189,18 +188,6 @@ nnoremap <silent> <C-n> :Lexplore<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <C-r> :Rg<CR>
-
-nnoremap <silent> <C-t> :FloatermToggle<CR>
-tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
-
-nnoremap <silent> <C-f> :FloatermNew<CR>
-tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
-
-nnoremap <silent> <C-/> :FloatermNext<CR>
-tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
-
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
 
 set background=dark
 colorscheme ayu
