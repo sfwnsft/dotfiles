@@ -125,8 +125,8 @@ tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
 nnoremap <silent> <C-f> :FloatermNew<CR>
 tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
 
-nnoremap <silent> <C-/> :FloatermNext<CR>
-tnoremap <silent> <C-/> <C-\><C-n>:FloatermNext<CR>
+nnoremap <silent> <C-_> :FloatermNext<CR>
+tnoremap <silent> <C-_> <C-\><C-n>:FloatermNext<CR>
 
 let g:airline_theme='ayu'
 let g:airline_powerline_fonts = 1
@@ -188,6 +188,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
+Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
@@ -209,6 +210,15 @@ nnoremap <silent> <C-n> :Lexplore<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <C-r> :Rg<CR>
+
+nnoremap <silent> <C-t> :FloatermToggle<CR>
+tnoremap <silent> <C-t> <C-\><C-n>:FloatermToggle<CR>
+
+nnoremap <silent> <C-f> :FloatermNew<CR>
+tnoremap <silent> <C-f> <C-\><C-n>:FloatermNew<CR>
+
+nnoremap <silent> <C-_> :FloatermNext<CR>
+tnoremap <silent> <C-_> <C-\><C-n>:FloatermNext<CR>
 
 set background=dark
 colorscheme ayu
