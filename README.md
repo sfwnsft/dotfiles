@@ -18,7 +18,6 @@ window-padding-balance = true
 
 macos-titlebar-style = tabs
 bell-features = no-system, no-audio, no-attention, no-title
-
 ```
 
 ## Tmux Configuration ```~/.tmux.conf```
@@ -29,10 +28,10 @@ unbind C-b
 bind C-a send-prefix
 
 set -g mouse on
-set -s escape-time 0
+set -g escape-time 0
 
 set -g focus-events on
-set -s set-clipboard on
+set -g set-clipboard on
 
 bind | split-window -h -c "#{pane_current_path}"
 bind _ split-window -v -c "#{pane_current_path}"
@@ -51,10 +50,9 @@ setw -g window-status-format ' #T '
 setw -g window-status-current-format ' #[bold]#T '
 
 bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
-
 ```
 
-## Vim Configuration ```~/.vimrc```
+## Vim Configuration V1 ```~/.vimrc```
 
 ```
 syntax on
@@ -147,10 +145,9 @@ let g:floaterm_height = 0.8
 set background=dark
 colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
-
 ```
 
-## Minimal Version (Best w/Tmux) ```~/.vimrc```
+## Minimal Version V2 (Best w/Tmux) ```~/.vimrc```
 
 ```
 syntax on
@@ -160,6 +157,7 @@ set title
 set titlestring=%t
 set number
 set showmatch
+set cursorline
 set scrolloff=8
 set autoindent
 set noshowcmd
@@ -168,6 +166,8 @@ set shiftwidth=4
 set splitright
 set splitbelow
 set noswapfile
+set hidden
+set incsearch
 set wrap
 set linebreak
 set expandtab
@@ -175,12 +175,12 @@ set termguicolors
 set clipboard=unnamed
 set mouse=a
 set fillchars=eob:\ 
-autocmd InsertLeave * write
 
 let g:polyglot_disabled = ['markdown']
 
 call plug#begin('~/.vim/plugged')
 Plug 'Luxed/ayu-vim'
+Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -192,7 +192,13 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
+
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
 
 let g:startify_custom_header = []
 let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
@@ -206,6 +212,7 @@ let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
 
 nnoremap U <C-r>
 
+nnoremap <silent> <C-l> :ALELint<CR>
 nnoremap <silent> <C-n> :Lexplore<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
@@ -223,7 +230,6 @@ tnoremap <silent> <C-_> <C-\><C-n>:FloatermNext<CR>
 set background=dark
 colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
-
 ```
 
 ## Terminal Inside Vim
@@ -259,6 +265,7 @@ These can be installed, updated, and removed inside Vim using,
 - sbdchd/neoformat
 - tiagofumo/vim-nerdtree-syntax-highlight
 - ryanoasis/vim-devicons
+- dense-analysis/ale
 
 ## Debugger Access
 
