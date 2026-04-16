@@ -156,8 +156,8 @@ filetype plugin indent on
 set title
 set titlestring=%t
 set number
-set showmatch
 set cursorline
+set showmatch
 set scrolloff=8
 set autoindent
 set noshowcmd
@@ -174,6 +174,7 @@ set expandtab
 set termguicolors
 set clipboard=unnamed
 set mouse=a
+" autocmd InsertLeave * write
 set fillchars=eob:\ 
 
 let g:polyglot_disabled = ['markdown']
@@ -185,6 +186,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
+Plug 'tpope/vim-fugitive'
 Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
