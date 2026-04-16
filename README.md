@@ -157,6 +157,7 @@ set title
 set titlestring=%t
 set number
 set cursorline
+set autoread
 set showmatch
 set scrolloff=8
 set autoindent
@@ -174,7 +175,6 @@ set expandtab
 set termguicolors
 set clipboard=unnamed
 set mouse=a
-" autocmd InsertLeave * write
 set fillchars=eob:\ 
 
 let g:polyglot_disabled = ['markdown']
