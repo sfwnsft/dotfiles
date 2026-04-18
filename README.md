@@ -194,7 +194,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
-Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 let g:ale_lint_on_text_changed = 'never'
