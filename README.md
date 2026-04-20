@@ -41,8 +41,6 @@ bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 set -g status-position top
 set -g status-justify centre
 set -g status-style "bg=default fg=#646B73"
-set -g status-left-length 0
-set -g status-right-length 0
 set -g status-left ""
 set -g status-right ""
 
