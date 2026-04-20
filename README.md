@@ -234,7 +234,6 @@ hi Normal guibg=NONE ctermbg=NONE
 ## NeoVim Configuration ```init.lua```
 
 ```
-vim.opt.title = true
 vim.opt.titlestring = "%t"
 vim.opt.number = true
 vim.opt.showmatch = true
@@ -280,7 +279,6 @@ require("lazy").setup({
     {
         "folke/tokyonight.nvim",
         priority = 1000,
-        lazy = false,
         config = function()
             require("tokyonight").setup({ style = "night" })
             vim.cmd("colorscheme tokyonight")
@@ -288,30 +286,25 @@ require("lazy").setup({
     },
     {
         "nvim-telescope/telescope.nvim",
-        cmd = "Telescope",
         dependencies = { "nvim-lua/plenary.nvim" },
     },
     {
         "MeanderingProgrammer/render-markdown.nvim",
-        ft = "markdown",
         dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
         opts = {},
     },
     {
         "numToStr/Comment.nvim",
-        event = "VeryLazy",
     },
     {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
-        event = "VeryLazy",
         config = function()
             require("ibl").setup({ indent = { char = "│" } })
         end,
     },
     {
         "akinsho/toggleterm.nvim",
-        keys = { "<C-t>" },
         config = function()
             require("toggleterm").setup({
                 open_mapping = [[<C-t>]],
@@ -326,7 +319,6 @@ require("lazy").setup({
     },
     {
         "stevearc/conform.nvim",
-        event = "BufWritePre",
         config = function()
             require("conform").setup({
                 formatters_by_ft = {
@@ -349,7 +341,6 @@ require("lazy").setup({
         "nvim-treesitter/nvim-treesitter",
         branch = "master",
         build = ":TSUpdate",
-        event = { "BufReadPost", "BufNewFile" },
         config = function()
             require("nvim-treesitter.configs").setup({
                 ensure_installed = { "c", "python", "lua", "javascript", "html", "css", "markdown", "markdown_inline" },
@@ -359,14 +350,12 @@ require("lazy").setup({
     },
     {
         "NvChad/nvim-colorizer.lua",
-        event = "BufReadPost",
         config = function()
             require("colorizer").setup()
         end,
     },
     {
         "nvim-lualine/lualine.nvim",
-        event = "VeryLazy",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("lualine").setup({
@@ -392,9 +381,9 @@ require("lazy").setup({
 })
 
 local map = vim.keymap.set
-map("n", "<C-p>", "<cmd>Telescope find_files<cr>", { silent = true })
-map("n", "<C-r>", "<cmd>Telescope live_grep<cr>", { silent = true })
-map("n", "<C-b>", "<cmd>Telescope buffers<cr>", { silent = true })
+map("n", "<C-p>", function() require("telescope.builtin").find_files() end, { silent = true })
+map("n", "<C-r>", function() require("telescope.builtin").live_grep() end, { silent = true })
+map("n", "<C-b>", function() require("telescope.builtin").buffers() end, { silent = true })
 map("n", "U", "<C-r>")
 map("n", "<C-n>", ":Lexplore<CR>", { silent = true })
 ```
