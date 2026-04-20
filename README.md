@@ -231,6 +231,182 @@ set background=dark
 colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
 ```
+## NeoVim Configuration ```init.lua```
+
+```
+vim.opt.title = true
+vim.opt.titlestring = "%t"
+vim.opt.number = true
+vim.opt.showmatch = true
+vim.opt.scrolloff = 8
+vim.opt.showcmd = false
+vim.opt.showmode = false
+vim.opt.cursorline = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.signcolumn = "yes"
+vim.opt.wildignorecase = true
+vim.opt.updatetime = 300
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.swapfile = false
+vim.opt.wrap = true
+vim.opt.smartindent = true
+vim.opt.linebreak = true
+vim.opt.expandtab = true
+vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
+vim.opt.fillchars = { eob = " " }
+
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable",
+        lazypath,
+    })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup({
+    {
+        "folke/tokyonight.nvim",
+        priority = 1000,
+        config = function()
+            require("tokyonight").setup({
+                style = "night",
+            })
+            vim.cmd("colorscheme tokyonight")
+        end,
+    },
+    {
+        "nvim-neo-tree/neo-tree.nvim",
+        branch = "v3.x",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "MunifTanjim/nui.nvim",
+        },
+        config = function()
+            require("neo-tree").setup({
+                window = { width = 25 },
+                filesystem = {
+                    filtered_items = {
+                        hide_dotfiles = true,
+                        hide_gitignored = true,
+                    },
+                },
+            })
+        end,
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {
+        "MeanderingProgrammer/render-markdown.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+        opts = {},
+    },
+    {
+        "echasnovski/mini.comment",
+        version = false,
+        config = function()
+            require("mini.comment").setup()
+        end,
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        config = function()
+            require("ibl").setup({ indent = { char = "│" } })
+        end,
+    },
+    {
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = [[<C-t>]],
+                direction = "float",
+                float_opts = {
+                    border = "curved",
+                },
+            })
+        end,
+    },
+    {
+        "stevearc/conform.nvim",
+        config = function()
+            require("conform").setup({
+                formatters_by_ft = {
+                    c = { "clang_format" },
+                    cpp = { "clang_format" },
+                    javascript = { "prettier" },
+                    typescript = { "prettier" },
+                    html = { "prettier" },
+                    css = { "prettier" },
+                    python = { "black" },
+                },
+                format_on_save = { timeout_ms = 2000 },
+            })
+        end,
+    },
+    {
+        "nvim-treesitter/nvim-treesitter",
+        branch = "master",
+        build = ":TSUpdate",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = { "c", "python", "lua", "javascript", "html", "css", "markdown", "markdown_inline" },
+                highlight = { enable = true },
+            })
+        end,
+    },
+    {
+        "NvChad/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end,
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        config = function()
+            require("lualine").setup({
+                options = {
+                    theme = "tokyonight",
+                    globalstatus = true,
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                },
+                sections = {
+                    lualine_a = { "mode" },
+                    lualine_b = { "branch", "diff", "diagnostics" },
+                    lualine_c = { "filename" },
+                    lualine_x = { "filetype" },
+                    lualine_y = { "progress" },
+                    lualine_z = { "location" },
+                },
+            })
+        end,
+    },
+}, {
+    checker = { enabled = false },
+})
+
+vim.keymap.set("n", "<C-p>", function() require("telescope.builtin").find_files() end, { silent = true })
+vim.keymap.set("n", "<C-r>", function() require("telescope.builtin").live_grep() end, { silent = true })
+vim.keymap.set("n", "<C-b>", function() require("telescope.builtin").buffers() end, { silent = true })
+
+local map = vim.keymap.set
+map("n", "U", "<C-r>")
+map("n", "<C-n>", ":Neotree toggle<CR>", { silent = true })
+```
 
 ## Terminal Inside Vim
 
