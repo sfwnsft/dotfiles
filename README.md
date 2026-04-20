@@ -29,27 +29,29 @@ bind C-a send-prefix
 
 set -g mouse on
 set -g escape-time 0
-
 set -g focus-events on
 set -g set-clipboard on
+set -g default-terminal "tmux-256color"
 
 bind | split-window -h -c "#{pane_current_path}"
 bind _ split-window -v -c "#{pane_current_path}"
 bind = select-layout even-horizontal
-
-set -g default-terminal "tmux-256color"
+bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
 
 set -g status-position top
 set -g status-justify centre
 set -g status-style "bg=default fg=#646B73"
-
+set -g status-left-length 0
+set -g status-right-length 0
 set -g status-left ""
 set -g status-right ""
 
-setw -g window-status-format ' #T '
-setw -g window-status-current-format ' #[bold]#T '
+set -g base-index 1
+set -g pane-base-index 1
+set -g renumber-windows on
 
-bind r source-file ~/.tmux.conf \; display "Config Reloaded!"
+setw -g window-status-format '#I:#W'
+setw -g window-status-current-format '#[bold]#I:#W'
 ```
 
 ## Vim Configuration V1 ```~/.vimrc```
