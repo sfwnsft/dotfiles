@@ -166,6 +166,12 @@ set autoindent
 set noshowcmd
 set tabstop=4
 set shiftwidth=4
+set ignorecase
+set smartcase
+set signcolumn=yes
+set wildmenu
+set wildignorecase
+set updatetime=300
 set splitright
 set splitbelow
 set noswapfile
@@ -179,21 +185,16 @@ set clipboard=unnamed
 set mouse=a
 set fillchars=eob:\ 
 
-let g:polyglot_disabled = ['markdown']
-
 call plug#begin('~/.vim/plugged')
 Plug 'Luxed/ayu-vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'tpope/vim-fugitive'
 Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm'
-Plug 'mhinz/vim-startify'
 Plug 'ap/vim-css-color'
 Plug 'sbdchd/neoformat'
 call plug#end()
@@ -202,10 +203,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 0
-
-let g:startify_custom_header = []
-let g:startify_lists = [{ 'type': 'files', 'header': ['   Recent Files'] }]
-let g:startify_enable_special = 0
 
 let g:indentLine_char = '│'
 
