@@ -249,9 +249,6 @@ hi Normal guibg=NONE ctermbg=NONE
     "editor.minimap.renderCharacters": false,
     "editor.minimap.enabled": false,
     "editor.quickSuggestions": {
-        
-
-
         "other": "off",
         "comments": "off",
         "strings": "off"
@@ -260,7 +257,6 @@ hi Normal guibg=NONE ctermbg=NONE
     "editor.parameterHints.enabled": false,
     "window.commandCenter": false,
     "chat.viewSessions.orientation": "stacked",
-    "workbench.editor.showTabs": "none",
     "workbench.editor.enablePreview": false,
     "explorer.confirmDelete": false,
     "editor.renderLineHighlight": "none",
@@ -281,13 +277,21 @@ hi Normal guibg=NONE ctermbg=NONE
     "github.copilot.editor.enableCodeActions": false,
     "code-runner.runInTerminal": true,
     "workbench.panel.showLabels": false,
-    "breadcrumbs.enabled": false,
     "editor.stickyScroll.enabled": false,
     "workbench.activityBar.location": "hidden",
+    "terminal.integrated.cursorStyle": "line",
+    "editor.cursorStyle": "line",
     "editor.fontFamily": "JetBrainsMono Nerd Font",
     "editor.fontSize": 12,
     "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-    "terminal.integrated.fontSize": 12
+    "terminal.integrated.fontSize": 12,
+    "workbench.colorTheme": "Hyper Term Black",
+    "window.customTitleBarVisibility": "never",
+    "breadcrumbs.enabled": false,
+    "workbench.editor.showTabs": "none",
+    "code-runner.executorMap": {
+    "python": "python3 -u"
+    }
 }
 ```
 
