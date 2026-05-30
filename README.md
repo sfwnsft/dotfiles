@@ -229,6 +229,68 @@ set background=dark
 colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
 ```
+
+## Minimal VS Code Setup ```settings.json```
+
+```
+{
+    "workbench.activityBar.compact": true,
+    "workbench.statusBar.visible": false,
+    "terminal.integrated.initialHint": false,
+    "workbench.editor.empty.hint": "hidden",
+    "workbench.layoutControl.enabled": false,
+    "workbench.browser.showInTitleBar": false,
+    "workbench.startupEditor": "none",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "workbench.editor.titleScrollbarVisibility": "hidden",
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.enabled": false,
+    "editor.quickSuggestions": {
+        
+
+
+        "other": "off",
+        "comments": "off",
+        "strings": "off"
+    },
+    "editor.inlineSuggest.enabled": false,
+    "editor.parameterHints.enabled": false,
+    "window.commandCenter": false,
+    "chat.viewSessions.orientation": "stacked",
+    "workbench.editor.showTabs": "none",
+    "workbench.editor.enablePreview": false,
+    "explorer.confirmDelete": false,
+    "editor.renderLineHighlight": "none",
+    "editor.overviewRulerBorder": false,
+    "editor.hideCursorInOverviewRuler": true,
+    "editor.overviewRulerLanes": 0,
+    "workbench.editor.editorActionsLocation": "titleBar",
+    "extensions.ignoreRecommendations": true,
+    "latex-workshop.message.information.show": true,
+    "workbench.editorAssociations": {
+        "*.copilotmd": "vscode.markdown.preview.editor",
+        "*.pdf": "latex-workshop-pdf-hook"
+    },
+    "latex-workshop.view.pdf.ref.viewer": "tabOrBrowser",
+    "editor.hover.enabled": "off",
+    "editor.lightbulb.enabled": "off",
+    "editor.codeActionsOnSave": {},
+    "github.copilot.editor.enableCodeActions": false,
+    "code-runner.runInTerminal": true,
+    "workbench.panel.showLabels": false,
+    "breadcrumbs.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "workbench.activityBar.location": "hidden",
+    "editor.fontFamily": "JetBrainsMono Nerd Font",
+    "editor.fontSize": 12,
+    "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+    "terminal.integrated.fontSize": 12
+}
+```
+
 ## NeoVim Configuration ```init.lua```
 
 ```
