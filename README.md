@@ -28,10 +28,12 @@ unbind C-b
 bind C-a send-prefix
 
 set -g mouse on
-set -g escape-time 0
+set -g escape-time 10
 set -g focus-events on
 set -g set-clipboard on
+set -g history-limit 10000
 set -g default-terminal "tmux-256color"
+set -as terminal-features ",xterm-256color:RGB"
 
 bind | split-window -h -c "#{pane_current_path}"
 bind _ split-window -v -c "#{pane_current_path}"
@@ -48,8 +50,9 @@ set -g base-index 1
 set -g pane-base-index 1
 set -g renumber-windows on
 
-setw -g window-status-format '#I:#W'
-setw -g window-status-current-format '#[bold]#I:#W'
+setw -g xterm-keys on
+setw -g window-status-format '#W'
+setw -g window-status-current-format '#[bold]#W'
 ```
 
 ## Vim Configuration V1 ```~/.vimrc```
@@ -156,7 +159,6 @@ filetype plugin indent on
 set title
 set titlestring=%t
 set number
-set cursorline
 set autoread
 set showmatch
 set scrolloff=8
@@ -166,6 +168,9 @@ set tabstop=4
 set shiftwidth=4
 set ignorecase
 set smartcase
+set ttimeout
+set ttimeoutlen=10
+set ttymouse=sgr
 set signcolumn=yes
 set wildmenu
 set wildignorecase
@@ -186,10 +191,8 @@ set fillchars=eob:\
 call plug#begin('~/.vim/plugged')
 Plug 'Luxed/ayu-vim'
 Plug 'dense-analysis/ale'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'kaarmu/typst.vim'
 Plug 'tpope/vim-commentary'
 Plug 'Yggdroot/indentLine'
 Plug 'voldikss/vim-floaterm'
@@ -204,14 +207,9 @@ let g:ale_lint_on_save = 0
 
 let g:indentLine_char = '│'
 
-let g:netrw_banner = 0
-let g:netrw_winsize = 15
-let g:netrw_list_hide = '\(^\|\s\s\)\zs\.\S\+'
-
 nnoremap U <C-r>
 
 nnoremap <silent> <C-l> :ALELint<CR>
-nnoremap <silent> <C-n> :Lexplore<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <C-b> :Buffers<CR>
 nnoremap <silent> <C-r> :Rg<CR>
